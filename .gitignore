@@ -2,3 +2,6 @@
 /resources
 .hugo_build.lock
 .DS_Store
+.opencode/
+TODO.md
+github-pages-plan.md
