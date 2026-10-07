@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ══ SEO ══ -->
+<title>Página não encontrada | {{ site.Title }}</title>
+<meta name="description" content="Página não encontrada no site da ACCS Gestão e Prestação de Contas para o Terceiro Setor. Volte para a página inicial para conferir editais, publicações e as novidades da ACCS.">
+<meta name="author" content="ACCS UFBA — Gestão e Prestação de Contas para o Terceiro Setor">
+<meta name="robots" content="index, follow">
+<meta name="language" content="Portuguese">
+<link rel="icon" type="image/png" href="{{ "favicon.png" | relURL }}">
+
+<!-- ══ Performance ══ -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;0,900;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ "styles/style.css" | relURL }}">
+</head>
+<body>
+
+{{ partial "nav.html" . }}
+
+<div class="grad-bar"></div>
+
+<main>
+  <section class="hero" aria-label="Página não encontrada">
+    <div class="container">
+      <div class="hero-inner" style="grid-template-columns:1fr;">
+        <div class="fade-in" style="max-width:680px;margin:0 auto;text-align:center;">
+          <div class="hero-badge" style="justify-content:center;">
+            <span class="hdot"></span>
+            Erro 404
+          </div>
+          <h1 class="ht">Página não<br><span class="hl">encontrada</span></h1>
+          <p class="hdesc" style="margin-left:auto;margin-right:auto;">
+            O endereço que você tentou acessar não existe, foi movido ou está temporariamente indisponível.
+            Verifique a URL ou explore a página inicial para conferir editais, publicações e as novidades da ACCS.
+          </p>
+          <div class="hbtns" style="justify-content:center;">
+            <a href="/" class="btn-g">← Voltar para a página inicial</a>
+            <a href="/editais/" class="btn-outline">Ver Editais</a>
+            <a href="/publicacoes/" class="btn-outline">Ver Publicações</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+{{ partial "footer.html" . }}
+
+<script>
+/* ── Scroll animations ── */
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+
+/* ── Mobile nav ── */
+const toggle = document.getElementById('navToggle');
+const drawer = document.getElementById('navDrawer');
+
+function closeDrawer() {
+  if (!toggle || !drawer) return;
+  drawer.classList.remove('open');
+  toggle.classList.remove('open');
+}
+
+if (toggle && drawer) {
+  toggle.addEventListener('click', () => {
+    const open = drawer.classList.toggle('open');
+    toggle.classList.toggle('open', open);
+  });
+
+  document.addEventListener('click', e => {
+    if (!toggle.contains(e.target) && !drawer.contains(e.target)) {
+      closeDrawer();
+    }
+  });
+}
+</script>
+</body>
+</html>

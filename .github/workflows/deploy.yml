@@ -1,0 +1,41 @@
+name: Deploy to GitHub Pages
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]   # build-only check, never deploys
+  workflow_dispatch:    # manual deploy
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: '0.166.0'
+          extended: true
+      - run: hugo --gc --minify
+      - uses: actions/upload-pages-artifact@v3
+        if: github.event_name != 'pull_request'
+        with: { path: public }
+
+  deploy:
+    if: github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

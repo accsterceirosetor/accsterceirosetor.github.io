@@ -1,6 +1,8 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: accsterceirosetor/accsterceirosetor.github.io
   branch: main
+  base_url: https://accs-decap-oauth.<YOUR-CLOUDFLARE-SUBDOMAIN>.workers.dev
 
 locale: pt
 
