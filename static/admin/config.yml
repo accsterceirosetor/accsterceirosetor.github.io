@@ -2,7 +2,7 @@ backend:
   name: github
   repo: accsterceirosetor/accsterceirosetor.github.io
   branch: main
-  base_url: https://accs-decap-oauth.<YOUR-CLOUDFLARE-SUBDOMAIN>.workers.dev
+  base_url: https://accs-decap-oauth.accs-terceirosetor.workers.dev
 
 locale: pt
 
@@ -39,8 +39,8 @@ collections:
               "Transparência",
             ],
         }
-      - { label: "Imagem de capa (opcional)", name: "capa", widget: "image", required: false }
-      - { label: "Arquivo (opcional)", name: "arquivo", widget: "file", required: false }
+      - { label: "Imagem de capa", name: "capa", widget: "image", required: false }
+      - { label: "Arquivo", name: "arquivo", widget: "file", required: false }
       - { label: "Destaque na home", name: "featured", widget: "boolean", default: false }
       - { label: "Conteúdo", name: "body", widget: "markdown" }
 
