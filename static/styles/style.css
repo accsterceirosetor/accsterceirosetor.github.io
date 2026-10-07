@@ -539,6 +539,9 @@ footer {
   .nav-links { display: none; }
   .nav-toggle { display: flex; }
 
+  /* Nav logo: hide long subtitle on mobile so the nav fits the viewport */
+  .nav-logo-text span { display: none; }
+
   /* Instagram button in hero */
   .btn-ig-mobile {
     display: inline-flex; align-items: center; justify-content: center; gap: 7px;

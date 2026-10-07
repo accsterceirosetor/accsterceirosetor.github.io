@@ -989,6 +989,11 @@ RESPONSIVE — MOBILE  (≤ 768px)
     display: flex;
     }
 
+    /* Nav logo: hide long subtitle on mobile so the nav fits the viewport */
+    .nav-logo-text span {
+    display: none;
+    }
+
     /* Containers — full width with comfortable padding */
     .container,
     .article-container {
@@ -1168,11 +1173,6 @@ RESPONSIVE — SMALL MOBILE  (≤ 480px)
     .container,
     .article-container {
     padding: 0 16px;
-    }
-
-    /* Nav logo: hide subtitle on very small screens */
-    .nav-logo-text span {
-    display: none;
     }
 
     /* Page hero */
