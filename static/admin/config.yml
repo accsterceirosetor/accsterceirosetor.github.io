@@ -39,7 +39,7 @@ collections:
               "Transparência",
             ],
         }
-      - { label: "Imagem de capa", name: "capa", widget: "image", required: false }
+      - { label: "Imagem de capa", name: "capa", widget: "image", required: true, hint: "Selecione uma imagem para a capa da publicação. Campo obrigatório." }
       - { label: "Arquivo", name: "arquivo", widget: "file", required: false }
       - { label: "Destaque na home", name: "featured", widget: "boolean", default: false }
       - { label: "Conteúdo", name: "body", widget: "markdown" }
