@@ -20,11 +20,9 @@
     {{ with $editais }}
       {{ $latest := index (sort $editais "Params.inicio" "desc") 0 }}
       {{ partial "edital-card.html" $latest }}
-      {{ if gt (len $editais) 1 }}
       <div class="section-foot">
         <a class="section-foot-link" href="{{ "/editais/" | relURL }}">Ver todos os editais</a>
       </div>
-      {{ end }}
     {{ end }}
   </div>
 </section>
