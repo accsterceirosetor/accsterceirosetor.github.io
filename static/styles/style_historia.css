@@ -891,6 +891,37 @@ footer {
     color: rgba(255, 255, 255, .35);
 }
 
+.finst {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.finst-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.finst-link img {
+    height: 43px;
+    width: auto;
+    max-width: 144px;
+    object-fit: contain;
+    display: block;
+}
+
+.finst .flogo {
+    gap: 0;
+}
+
+.finst .flogo img {
+    width: 43px;
+    height: 43px;
+    border-radius: 50%;
+}
+
 .fnav {
     display: flex;
     align-items: center;
